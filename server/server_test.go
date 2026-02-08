@@ -71,7 +71,6 @@ func TestStartExerciseStop(t *testing.T) {
 		_, bytes, err = conn.ReadMessage()
 		assertNil(t, err, 6)
 		assertStringContains(t, string(bytes), strconv.Itoa(i))
-		fmt.Println(i)
 	}
 	err = conn.WriteMessage(websocket.TextMessage, []byte(StopWord))
 	assertNil(t, err, 7)
