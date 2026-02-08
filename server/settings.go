@@ -20,6 +20,7 @@ func (settings *Settings) ChangeWsEndpoint(wsEndpoint string) *Settings {
 }
 
 func (settings *Settings) ChangeMaxConnCount(maxConnCount int) *Settings {
+	connCount = make(chan struct{}, maxConnCount)
 	settings.MaxConnCount = maxConnCount
 	return settings
 }
